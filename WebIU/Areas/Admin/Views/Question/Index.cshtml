@@ -1,0 +1,85 @@
+﻿@using Entity.Concrete
+@model List<Question>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Soru Havuzu</h4>
+        <p class="card-description">
+            Sistemde bulunan tüm soruları aşağıdaki tablodan izleyebilirsiniz.
+        </p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Resim
+                        </th>
+                        <th>
+                            Cevap
+                        </th>
+                        <th>
+                            Zorluk
+                        </th>
+                        <th>
+                            Oluşturulma Tarihi
+                        </th>
+                        <th>
+                            Kategori
+                        </th>
+                        <th>
+                            İşlem Yap
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-1">
+                                <label>@item.QuestionId</label>
+                            </td>
+                            <td class="py-1">
+                                <img src="src=~/Resource/UploadedImages/QuestionsImages/@item.Image" alt="image">
+                            </td>
+                            <td>
+                                @item.Answer
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    @{
+                                        var sonuc = Convert.ToInt32(item.Difficulty.ToString())*100/5;
+                                        sonuc.ToString();
+                                    }
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width:@sonuc%" aria-valuemin="0" aria-valuemax="5"></div>
+                                </div>
+                            </td>
+                            <td>
+                                @item.DateOfUpload.ToShortDateString()
+                            </td>
+                            <td>
+                                @item.CategoryId
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-sm" asp-area="Admin" asp-controller="Question" asp-action="DeleteQuestion" asp-route-id="@item.QuestionId"> Sil</a>
+                                <a class="btn btn-success btn-sm" asp-area="Admin" asp-controller="Question" asp-action="UpdateQuestion" asp-route-id="@item.QuestionId"> Güncelle</a>
+                            </td>
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+            <a class="btn btn-warning btn-sm" asp-action="AddQuestion" asp-area="Admin" asp-controller="Question"> Yeni Soru Ekle</a>
+        </div>
+    </div>
+</div>

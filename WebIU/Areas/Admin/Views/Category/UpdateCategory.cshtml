@@ -1,0 +1,55 @@
+﻿@using Entity.DTOs
+@model CategoryModelDTO
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-11 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Güncelle</h4>
+            <p class="card-description">
+                Kategori güncellemek için aşağıdaki formu düzenleyiniz.
+            </p>
+            <br />
+            <line></line>
+            <form asp-action="UpdateCategory" asp-controller="Category" asp-area="Admin" class="forms-sample" method="post" enctype="multipart/form-data">
+                
+                <input type="hidden" asp-for="CategoryId" />
+
+                <div class="form-group">
+                    <label asp-for="Name">Kategori Adı</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Name" placeholder="Kategori Adını Giriniz.">
+                </div>
+
+                  <div class="form-group">
+                    <label asp-for="Name">Kategori Açıklaması</label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                    <textarea class="form-control" asp-for="Description" rows="3" placeholder="Kategori Adını Giriniz."></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Name">Kategori Resmi</label>
+                    <input type="file" class="form-control " asp-for="Image">
+                </div>
+
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary mr-2" asp-action="UpdateCategory" asp-area="Admin" asp-controller="Category">Kaydet</button>
+                   <button class="btn btn-warning" asp-action="Index" asp-area="Admin" asp-controller="Category">İptal Et</button>
+                </div>
+              
+                
+              
+            </form>
+
+            @section javaScript
+            {
+                <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min"></script>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@using Entity.DTOs
+@model QuestionModelDTO
+@{
+    ViewData["Title"] = "AddQuestion";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Horizontal Form</h4>
+        <p class="card-description">
+            Horizontal form layout
+        </p>
+        <form class="forms-sample" enctype="multipart/form-data">
+
+            <div class="form-group row">
+                <label asp-for="Image" class="col-sm-3 col-form-label">Soru Resmi</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control" asp-for="Image"
+                        asp-action="AddQuestion" asp-area="Admin" asp-controller="Question">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Cevap</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Cevabın Hangi Şık olduğunu Yazınız.">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label">Zorluk Düzeyi</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="exampleInputMobile" placeholder="1-5 Arasıda Zorluk Seviyesi Giriniz.">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Kategori</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            <button class="btn btn-light">İptal Et</button>
+        </form>
+    </div>
+</div>
+
+

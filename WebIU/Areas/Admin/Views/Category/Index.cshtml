@@ -1,0 +1,63 @@
+﻿
+@using Entity.Concrete;
+@model List<Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Listesi</h4>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-lg-1">Resim</th>
+                            <th class="col-lg-1">ID</th>
+                            <th class="col-lg-2">Kategori Adı</th>
+                            <th class="col-lg-5">Açıklama</th>
+                            <th class="col-lg-3">İşlem Yap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src=~/Resource/UploadedImages/CategoryImages/@item.Image></td>
+                                <td>@item.CategoryId</td>
+                                <td>@item.Name</td>
+                                <td class="text-danger">@item.Description<i class="typcn typcn-arrow-down-thick"></i></td>
+
+                                <td>
+                                    <a asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@item.CategoryId" asp-area="Admin"
+                                        class='btn btn-danger btn-sm'>Sil</a>
+                                    <a asp-controller="Category" asp-action="UpdateCategory" asp-route-id="@item.CategoryId" asp-area="Admin"
+                                        class='btn btn-success btn-sm'>Güncelle</a>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br />
+
+</div>
+
+<div class="container-fluid grid-margin stretch-card">
+    <a asp-action="AddCategory" asp-controller="Category" asp-area="Admin" class="btn btn-primary btn-sm my-2">Yeni Kategori Ekle</a>
+</div>
+
+
+
