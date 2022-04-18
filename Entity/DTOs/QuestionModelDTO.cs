@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Entity.DTOs
         public string Answer { get; set; } //(char(1), null)
         public DateTime DateOfUpload { get; set; } //(date, null)
         public sbyte Difficulty { get; set; } //(varbinary(10)10)
-
+        public IFormFile Image2{ get; set; }
 
 
 

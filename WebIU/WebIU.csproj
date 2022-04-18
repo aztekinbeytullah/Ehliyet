@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Resource\UploadedImages\CategoryImages\" />
-    <Folder Include="wwwroot\Resource\UploadedImages\Questions\" />
+    <Folder Include="wwwroot\Resource\UploadedImages\QuestionImages\" />
   </ItemGroup>
 
 </Project>

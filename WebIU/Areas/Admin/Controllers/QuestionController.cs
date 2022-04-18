@@ -1,4 +1,5 @@
 ﻿using BLL.Abstract;
+using Entity.Concrete;
 using Entity.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,10 +39,23 @@ namespace WebIU.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddQuestion(QuestionModelDTO model)
         {
+            if (ModelState.IsValid)
+            {
+                string path= "wwwroot/Resource/UploadedImages/QuestionImages/";
+                string ImageNewName =Core.Extentions.Tools.FileUploader.UploadImage(path, model.Image2);
+                Question question = new Question
+                {
+                    Answer=model.Answer,
+                    DateOfUpload=model.DateOfUpload,
+                    Difficulty=model.Difficulty,
+                    Image = ImageNewName
+
+                };
+                _questionServices.Add(question);
+            }
 
 
-
-            return View(); 
+            return RedirectToAction("Index");
         }
 
     }
