@@ -21,7 +21,7 @@
 
 </header>
 <body>
-    
+
     <div class="container-scroller">
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -383,8 +383,10 @@
                         </a>
                         <div class="collapse" id="charts">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="../../pages/charts/chartjs.html">Soru Listesi</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="../../pages/charts/chartjs.html">Yeni Soru Ekle</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Question" asp-action="Index" asp-area="Admin">Soru Listesi</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Question" asp-action="AddQuestion" asp-area="Admin">Yeni Soru Ekle</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Question" asp-action="AddQuestion" asp-area="Admin">Toplu Soru Ekle</a></li>
+
                             </ul>
                         </div>
                     </li>
@@ -450,9 +452,9 @@
             </nav>
             <!-- partial -->
             <div class="container-fluid">
-                
+
                 @RenderBody()
-            
+
             </div>
             <!-- main-panel ends -->
 

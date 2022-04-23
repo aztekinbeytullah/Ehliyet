@@ -16,47 +16,48 @@ namespace WebIU.Areas.Admin.Controllers
         public QuestionController(IQuestionServices questionServices, ICategoryServices categoryServices)
         {
             _questionServices=questionServices;
-            _categoryServices=categoryServices; 
+            _categoryServices=categoryServices;
         }
 
         public IActionResult Index()
         {
-            return View(_questionServices.GetList());
+            var modelDto = _questionServices.GetList();
+            return View(modelDto);
         }
 
         public IActionResult DeleteQuestion(int id)
         {
-            var question=_questionServices.GetById(id);
+            var question = _questionServices.GetById(id);
             _questionServices.Remove(question);
             return RedirectToAction("Index");
         }
 
         public IActionResult AddQuestion()
         {
+            //Mevcut Kategorilerin listesi altta bulunan bölüme gelmesi gerekiyor.
+            //QuestionModelDTO nesnesindeki List<Categori> alanının include edilmesi gerekiyor.
+            ViewBag.CategoryList= _categoryServices.GetList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddQuestion(QuestionModelDTO model)
+        public IActionResult AddQuestion(QuestionModelDTO modelDto)
         {
-            if (ModelState.IsValid)
-            {
-                string path= "wwwroot/Resource/UploadedImages/QuestionImages/";
-                string ImageNewName =Core.Extentions.Tools.FileUploader.UploadImage(path, model.Image2);
+            
+                string path = "wwwroot/Resource/UploadedImages/QuestionImages/";
+                string ImageNewName = Core.Extentions.Tools.FileUploader.UploadImage(path, modelDto.Image);
+
                 Question question = new Question
                 {
-                    Answer=model.Answer,
-                    DateOfUpload=model.DateOfUpload,
-                    Difficulty=model.Difficulty,
-                    Image = ImageNewName
-
+                    Answer = modelDto.Answer,
+                    CategoryId=modelDto.CategoryId,
+                    DateOfUpload=modelDto.DateOfUpload,
+                    Difficulty=modelDto.Difficulty,
+                    Image = ImageNewName,
                 };
-                _questionServices.Add(question);
-            }
-
-
+            _questionServices.Add(question);
             return RedirectToAction("Index");
-        }
-
     }
+
+}
 }

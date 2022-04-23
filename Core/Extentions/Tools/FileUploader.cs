@@ -26,7 +26,6 @@ namespace Core.Extentions.Tools
             path=String.Empty;
             formFile=null;
             return ImageNewName;
-
         }
     }
 }

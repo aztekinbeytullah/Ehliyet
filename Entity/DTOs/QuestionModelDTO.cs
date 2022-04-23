@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Entity.Concrete;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,11 @@ namespace Entity.DTOs
 {
     public  class QuestionModelDTO
     {
-        public int QuestionId { get; set; } //(int, not null)
-        public string Image { get; set; } //(nvarchar(500), null)
-        public string Answer { get; set; } //(char(1), null)
-        public DateTime DateOfUpload { get; set; } //(date, null)
-        public sbyte Difficulty { get; set; } //(varbinary(10)10)
-        public IFormFile Image2{ get; set; }
-
-
-
-        //Relations
+        public int QuestionId { get; set; } 
+        public IFormFile Image { get; set; }
+        public string Answer { get; set; } 
+        public DateTime DateOfUpload { get; set; } 
+        public sbyte Difficulty { get; set; } 
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
     }
