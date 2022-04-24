@@ -1,8 +1,5 @@
-﻿using BLL.Abstract;
-using Entity.Concrete;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebIU.Models;
 
 namespace WebIU.Areas.Admin.Controllers
 {

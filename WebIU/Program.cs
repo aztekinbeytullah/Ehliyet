@@ -47,6 +47,8 @@ builder.Services.AddScoped<ICategoryDal, EfCategoryRepository>();
 builder.Services.AddScoped<IQuestionServices, QuestionManager>();
 builder.Services.AddScoped<IQuestionDal, EfQuestionRepository>();
 
+builder.Services.AddScoped<IExerciseServices, ExerciseManager>();
+builder.Services.AddScoped<IExerciseDal, EfExerciseRepository>();
 
 var app = builder.Build();
 

@@ -1,0 +1,60 @@
+﻿@using Entity.Concrete
+@model List<Exercise>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="card card-small">
+                    <div class="thumbnail">
+                        <img alt="Opt alp thumbnail" src="https://via.placeholder.com/300x230/20B2AA/000000">
+                        <div class="details">
+                            <div class="user">
+                                <div class="user-photo">
+                                    @* <img alt="Thumb" src="https://bootdey.com/img/Content/avatar/avatar1.png">*@
+                                </div>
+                                <div class="name">Deneme Sınavı Türü </div>
+                            </div>
+                            <div class="numbers">
+                                <b class="downloads"><i class="fa fa-arrow-circle-o-down"></i>1212 Kere Çözüldü</b>
+                                <b class="comments-icon"><i class="fa fa-comment"></i> 10 Yorum</b>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-info">
+                        <div class="moving">
+                            <h3>@item.Name</h3>
+                            <p>@item.Description</p>
+
+                            <a class="btn btn-danger btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.ExerciseId">Sil</a>
+                            <a class="btn btn-primary btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Update" asp-route-id="@item.ExerciseId">Güncelle</a>
+                            <a class="btn btn-warning btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Detail" asp-route-id="@item.ExerciseId">Soruları İncele</a>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+
+    </div>
+</div>

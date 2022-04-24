@@ -63,6 +63,7 @@ namespace WebIU.Areas.Admin.Controllers
             };
             return View(model);
         }
+
         [HttpPost]
         public IActionResult UpdateCategory(CategoryModelDTO categoryModel)
         {

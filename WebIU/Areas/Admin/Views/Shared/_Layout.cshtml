@@ -19,6 +19,8 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="~/template/images/favicon.png" />
 
+    <link rel="stylesheet" href="~/css/Cart.css">
+
 </header>
 <body>
 
@@ -398,8 +400,8 @@
                         </a>
                         <div class="collapse" id="tables">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="../../pages/tables/basic-table.html">Sınav Listesi</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="../../pages/tables/basic-table.html">Yeni Sınav</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Exercise" asp-area="Admin" asp-action="Index">Sınav Listesi</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="Exercise" asp-area="Admin" asp-action="AddExercise">Yeni Sınav</a></li>
                             </ul>
                         </div>
                     </li>
