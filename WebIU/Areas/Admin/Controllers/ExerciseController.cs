@@ -10,8 +10,6 @@ namespace WebIU.Areas.Admin.Controllers
     public class ExerciseController : Controller
     {
         IExerciseServices _exerciseService;
-
-        //DEneme metni
         public ExerciseController(IExerciseServices exerciseService)
         {
             _exerciseService=exerciseService;
