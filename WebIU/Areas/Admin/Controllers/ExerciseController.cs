@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebIU.Areas.Admin.Controllers
 {
+    //Deneme
     [Area("Admin")]
     [Authorize]
     public class ExerciseController : Controller
