@@ -1,0 +1,45 @@
+﻿@using Entity.Concrete
+
+@model Exercise
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Deneme Ekle</h4>
+            <p class="card-description">
+                Sisteme yeni bir Deneme Sınavı eklemek için aşağıdaki formu doldurmalısınız
+            </p>
+            <form asp-action="Add" asp-controller="Exercise" asp-area="Admin" class="forms-sample" method="post" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label asp-for="Name">Deneme Tanımı</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Name" placeholder="Deneme Tanımını Giriniz.">
+                </div>
+
+                  <div class="form-group">
+                    <label asp-for="Description">Deneme Açıklaması</label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                    <textarea class="form-control" asp-for="Description" rows="3" placeholder="Deneme Açıklamasını Giriniz."></textarea>
+                </div>
+
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary mr-2" asp-action="Add" asp-area="Admin" asp-controller="Exercise">Kaydet</button>
+                  <button class="btn btn-warning" asp-action="Index" asp-area="Admin" asp-controller="Exercise">İptal Et</button>
+                </div>
+            </form>
+
+            @section javaScript
+            {
+                <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min"></script>
+            }
+        </div>
+    </div>
+</div>
+
+
