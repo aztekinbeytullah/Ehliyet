@@ -39,10 +39,13 @@ namespace WebIU.Areas.Admin.Controllers
         {
             var result = _exerciseService.GetById(id);
             _exerciseService.Remove(result);
-            RedirectToAction("Index", "Exercise");
-            return View();
+            return RedirectToAction("Index", "Exercise", new { area = "Admin" });
         }
         
+
+
+
+
         public IActionResult Update(int id)
         {
            var result=_exerciseService.GetById(id);
@@ -52,8 +55,22 @@ namespace WebIU.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Update(Exercise exercise)
         {
-            _exerciseService.Update(exercise);
-            return View("Index");
+            if (ModelState.IsValid)
+            {
+                var result = _exerciseService.GetById(exercise.ExerciseId);
+                
+                result.Description = exercise.Description;
+                result.Difficulty = exercise.Difficulty;
+                result.Name = exercise.Name;
+                result.QuestionCount = exercise.QuestionCount;
+               
+
+
+                _exerciseService.Update(result);
+
+            }
+            return RedirectToAction("Index", "Exercise", new { area = "Admin" });
+            
         }
 
 
