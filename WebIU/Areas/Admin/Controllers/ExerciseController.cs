@@ -32,14 +32,15 @@ namespace WebIU.Areas.Admin.Controllers
         {
             exercise.CreatedTime = DateTime.Now;
             _exerciseService.Add(exercise);
-            return View();
+            return View("Index");
         }
 
         public IActionResult Remove(int id)
         {
             var result = _exerciseService.GetById(id);
             _exerciseService.Remove(result);
-            return View("Index");
+            RedirectToAction("Index", "Exercise");
+            return View();
         }
         
         public IActionResult Update(int id)

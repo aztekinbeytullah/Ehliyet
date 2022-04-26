@@ -13,6 +13,8 @@ namespace Entity.Concrete
         public int ExerciseId { get; set; } //(int, not null)
         public string Name { get; set; } //(nvarchar(50), null)
         public string Description { get; set; } //(nvarchar(150), null)
+        public int Difficulty { get; set; }
+        public int QuestionCount { get; set; }
         public DateTime CreatedTime { get; set; }
 
 
