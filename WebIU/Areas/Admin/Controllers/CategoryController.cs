@@ -67,8 +67,7 @@ namespace WebIU.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateCategory(CategoryModelDTO categoryModel)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var category = _categoryServices.GetById(categoryModel.CategoryId);
                 if (categoryModel.Image!=null)
                 {
@@ -79,8 +78,7 @@ namespace WebIU.Areas.Admin.Controllers
 
                 _categoryServices.Update(category);
                 return RedirectToAction("Index", "Category", new { area = "Admin" });
-            }
-            return View(categoryModel);
+      
         }
 
 

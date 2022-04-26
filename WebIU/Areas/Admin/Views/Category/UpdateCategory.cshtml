@@ -14,8 +14,7 @@
             <br />
             <line></line>
             <form asp-action="UpdateCategory" asp-controller="Category" asp-area="Admin" class="forms-sample" method="post" enctype="multipart/form-data">
-                
-                <input type="hidden" asp-for="CategoryId" />
+
 
                 <div class="form-group">
                     <label asp-for="Name">Kategori Adı</label>
@@ -23,7 +22,7 @@
                     <input type="text" class="form-control" asp-for="Name" placeholder="Kategori Adını Giriniz.">
                 </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <label asp-for="Name">Kategori Açıklaması</label>
                     <span asp-validation-for="Description" class="text-danger"></span>
                     <textarea class="form-control" asp-for="Description" rows="3" placeholder="Kategori Adını Giriniz."></textarea>
@@ -36,15 +35,15 @@
                 </div>
 
                 <div class="form-group">
-                   <button type="submit" class="btn btn-primary mr-2" asp-action="UpdateCategory" asp-area="Admin" asp-controller="Category">Kaydet</button>
-                   <button class="btn btn-warning" asp-action="Index" asp-area="Admin" asp-controller="Category">İptal Et</button>
+                    <button type="submit" class="btn btn-primary mr-2" asp-action="UpdateCategory" asp-area="Admin" asp-controller="Category">Kaydet</button>
+                    <button class="btn btn-warning" asp-action="Index" asp-area="Admin" asp-controller="Category">İptal Et</button>
                 </div>
-              
-                
-              
+
+
+
             </form>
 
-           
+
         </div>
     </div>
 </div>
