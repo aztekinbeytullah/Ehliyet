@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ehliyet Admin Paneli</title>
     <!-- base:css -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+
+
+
     <link rel="stylesheet" href="~/template/vendors/typicons/typicons.css">
     <link rel="stylesheet" href="~/template/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
@@ -23,9 +27,10 @@
 
     ////////////////////////////////////////////
 
-     <!-- container-scroller -->
+    <!-- container-scroller -->
     <!-- base:js -->
     <script src="~/template/vendors/js/vendor.bundle.base.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/js/bootstrap.js">
     <!-- endinject -->
     <!-- inject:js -->
     <script src="~/template/js/off-canvas.js"></script>
@@ -488,12 +493,17 @@
 
                 @RenderBody()
 
+
             </div>
             <!-- main-panel ends -->
 
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+   @* @RenderSection("scripts", required: false)*@
+
+  
+                  
 
 </body>
 </html>

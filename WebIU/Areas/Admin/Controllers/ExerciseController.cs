@@ -10,9 +10,11 @@ namespace WebIU.Areas.Admin.Controllers
     public class ExerciseController : Controller
     {
         IExerciseServices _exerciseService;
-        public ExerciseController(IExerciseServices exerciseService)
+        ICategoryServices _categoryService;
+        public ExerciseController(IExerciseServices exerciseService, ICategoryServices categoryServices)
         {
             _exerciseService=exerciseService;
+            _categoryService = categoryServices;
         }
 
         public IActionResult Index()
@@ -23,6 +25,8 @@ namespace WebIU.Areas.Admin.Controllers
 
         public  IActionResult Add()
         {
+            var categories=_categoryService.GetList();
+            ViewBag.CategoryList = categories;
             return View();
         }
 

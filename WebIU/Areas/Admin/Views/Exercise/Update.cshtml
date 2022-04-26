@@ -26,6 +26,8 @@
                     <input type="text" class="form-control" asp-for="Name" placeholder="Deneme Tanımını Giriniz.">
                 </div>
 
+               
+
                  <div class="form-group">
                     <label asp-for="QuestionCount">Soru Sayısı</label>
                     <span asp-validation-for="QuestionCount" class="text-danger"></span>
@@ -50,11 +52,7 @@
                 </div>
             </form>
 
-            @section javaScript
-            {
-                <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-                <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min"></script>
-            }
+         
         </div>
     </div>
 </div>
