@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebIU.Areas.Admin.Controllers
 {
-    //Deneme2
     [Area("Admin")]
     [Authorize]
     public class ExerciseController : Controller
@@ -32,8 +31,13 @@ namespace WebIU.Areas.Admin.Controllers
         {
             exercise.CreatedTime = DateTime.Now;
             _exerciseService.Add(exercise);
-            return View("Index");
+            
+
+            return RedirectToAction("Index", "Exercise");
+          
         }
+
+        
 
         public IActionResult Remove(int id)
         {

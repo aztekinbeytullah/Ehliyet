@@ -17,6 +17,8 @@ namespace Entity.Concrete
         public int QuestionCount { get; set; }
         public DateTime CreatedTime { get; set; }
 
+        public int CategoryId { get; set; }
+
 
 
         //public List<Question> questions { get; set; }
