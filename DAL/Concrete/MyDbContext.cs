@@ -13,7 +13,9 @@ namespace DAL.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-F009EHO; database=mtskdbdb;integrated security=true;");
+            string ev = "server=DESKTOP-F009EHO; database=mtskdbdb;integrated security=true;";
+            string uzak = "workstation id=mtskdbdb.mssql.somee.com;packet size=4096;user id=OgretmenX_SQLLogin_1;pwd=2ce7csxt6x;data source=mtskdbdb.mssql.somee.com;persist security info=False;initial catalog=mtskdbdb";
+            optionsBuilder.UseSqlServer(uzak);
             base.OnConfiguring(optionsBuilder);
            
         }

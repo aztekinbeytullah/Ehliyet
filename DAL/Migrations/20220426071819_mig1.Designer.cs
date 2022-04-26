@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220424153114_mig7")]
-    partial class mig7
+    [Migration("20220426071819_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -146,6 +146,29 @@ namespace DAL.Migrations
                     b.ToTable("Exercises");
                 });
 
+            modelBuilder.Entity("Entity.Concrete.ExerciseQuestion", b =>
+                {
+                    b.Property<int>("ExerciseQuestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExerciseQuestionId"), 1L, 1);
+
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExerciseQuestionId");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("ExerciseQuestions");
+                });
+
             modelBuilder.Entity("Entity.Concrete.Question", b =>
                 {
                     b.Property<int>("QuestionId")
@@ -167,9 +190,6 @@ namespace DAL.Migrations
                     b.Property<short>("Difficulty")
                         .HasColumnType("smallint");
 
-                    b.Property<int?>("ExerciseId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -177,8 +197,6 @@ namespace DAL.Migrations
                     b.HasKey("QuestionId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ExerciseId");
 
                     b.ToTable("Questions");
                 });
@@ -352,6 +370,25 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entity.Concrete.ExerciseQuestion", b =>
+                {
+                    b.HasOne("Entity.Concrete.Exercise", "Exercise")
+                        .WithMany()
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Concrete.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("Entity.Concrete.Question", b =>
                 {
                     b.HasOne("Entity.Concrete.Category", "Category")
@@ -359,10 +396,6 @@ namespace DAL.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Entity.Concrete.Exercise", null)
-                        .WithMany("questions")
-                        .HasForeignKey("ExerciseId");
 
                     b.Navigation("Category");
                 });
@@ -421,11 +454,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entity.Concrete.Category", b =>
                 {
                     b.Navigation("Questions");
-                });
-
-            modelBuilder.Entity("Entity.Concrete.Exercise", b =>
-                {
-                    b.Navigation("questions");
                 });
 #pragma warning restore 612, 618
         }
