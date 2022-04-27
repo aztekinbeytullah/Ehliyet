@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Abstract
 {
-    public  interface IExerciseServices: IGenericServices<Exercise>
+    public  interface IExerciseQuestionServices : IGenericServices<ExerciseQuestion>
     {
         
 

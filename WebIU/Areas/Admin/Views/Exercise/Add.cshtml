@@ -24,18 +24,16 @@
 
 
                 <div class="form-group">
-                    <label asp-for="CategoryId">Deneme Kategorisi</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Deneme Kategorisi Seçiniz</option>
+                    <label class="col-sm-3 col-form-label">Deneme Kategorisi</label>
+                    <select asp-for="CategoryId" class="form-select" aria-label="Default select example">
+                        <option value="0">Kategori Seçiniz</option>
                         @foreach (var item in categories)
                         {
-                             <option value="@item.CategoryId">@item.Name</option>
+                            <option asp-for="CategoryId" value="@item.CategoryId">@item.Name</option>
                         }
-                       
+
                     </select>
                 </div>
-
-     
 
                 <div class="form-group">
                     <label asp-for="QuestionCount">Soru Sayısı</label>
@@ -65,8 +63,8 @@
 </div>
 
 @*@section scripts {
-     <script type="text/javascript">alert('hello');</script>
-    
-}*@
+    <script type="text/javascript">alert('hello');</script>
+
+    }*@
 
 

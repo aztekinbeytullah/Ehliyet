@@ -1,15 +1,15 @@
 ﻿using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Abstract
+namespace DAL.Abstract
 {
-    public  interface IExerciseServices: IGenericServices<Exercise>
+    public interface IExerciseQuestionDal:IGenericDal<ExerciseQuestion>
     {
-        
 
     }
 }

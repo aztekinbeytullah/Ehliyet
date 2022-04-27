@@ -12,5 +12,6 @@ namespace BLL.Abstract
     public interface IQuestionServices : IGenericServices<Question>
     {
         public List<QuestionModelDTO> QuestionModelWhitCategory();
+        
     }
 }

@@ -12,13 +12,16 @@ namespace WebIU.Areas.Admin.Controllers
         IExerciseServices _exerciseService;
         ICategoryServices _categoryService;
         IQuestionServices _questionService;
+        IExerciseQuestionServices _exerciseQuestionService;
         public ExerciseController(  IExerciseServices exerciseService,
                                     ICategoryServices categoryServices,
-                                    IQuestionServices questionServices)
+                                    IQuestionServices questionServices,
+                                    IExerciseQuestionServices exerciseQuestionServices)
         {
             _exerciseService=exerciseService;
             _categoryService = categoryServices;
             _questionService = questionServices;
+            _exerciseQuestionService=exerciseQuestionServices;
         }
 
         public IActionResult Index()
@@ -55,6 +58,17 @@ namespace WebIU.Areas.Admin.Controllers
                selectedQuestions.Add(result[rnd.Next(0, result.Count)]);
             }
             //Seçilen sorular ilgili tabloya işlenmesi gerekiyor.
+            foreach (var item in selectedQuestions)
+            {
+                var eq = new ExerciseQuestion
+                {
+                    Exercise = e,
+                    Question = item
+                    
+                };
+                _exerciseQuestionService.Add(eq);
+            }
+           
 
         }
 

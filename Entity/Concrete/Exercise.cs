@@ -19,9 +19,9 @@ namespace Entity.Concrete
 
         public int CategoryId { get; set; }
 
+        List<Question> questions { get; set; }
 
 
-        //public List<Question> questions { get; set; }
 
 
     }

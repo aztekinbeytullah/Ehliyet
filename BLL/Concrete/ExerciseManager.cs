@@ -24,6 +24,10 @@ namespace BLL.Concrete
             _exerciseDal.Add(exercise);
         }
 
+        public void AddQuestionOnExercise(List<Question> questions)
+        {
+        }
+
         public Exercise GetById(int id)
         {
             return _exerciseDal.GetById(id);
