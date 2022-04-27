@@ -10,6 +10,6 @@ namespace DAL.Abstract
 {
     public interface IQuestionDal : IGenericDal<Question>
     {
-        List<QuestionModelDTO> QuestionModelWhitCategory();
+       
     }
 }

@@ -15,16 +15,15 @@ namespace DAL.Concrete
         {
             string ev = "server=DESKTOP-F009EHO; database=mtskdbdb;integrated security=true;";
             string uzak = "workstation id=mtskdbdb.mssql.somee.com;packet size=4096;user id=OgretmenX_SQLLogin_1;pwd=2ce7csxt6x;data source=mtskdbdb.mssql.somee.com;persist security info=False;initial catalog=mtskdbdb";
-            optionsBuilder.UseSqlServer(uzak);
+            optionsBuilder.UseSqlServer(ev);
             base.OnConfiguring(optionsBuilder);
            
         }
       
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<ExerciseQuestion> ExerciseQuestions { get; set; }
+        public DbSet<Category>? Categories { get; set; }
+        public DbSet<Question>? Questions { get; set; }
+        public DbSet<Exercise>? Exercises { get; set; }
+
 
     }
 }

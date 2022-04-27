@@ -10,7 +10,7 @@ namespace DAL.Abstract
 {
     public interface ICategoryDal:IGenericDal<Category>
     {
-        public List<ListOfCategoriesQuestionsDTO> Questions(int categoryId);
+       
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,16 +13,14 @@ namespace WebIU.Areas.Admin.Controllers
         IExerciseServices _exerciseService;
         ICategoryServices _categoryService;
         IQuestionServices _questionService;
-        IExerciseQuestionServices _exerciseQuestionService;
+      
         public ExerciseController(  IExerciseServices exerciseService,
                                     ICategoryServices categoryServices,
-                                    IQuestionServices questionServices,
-                                    IExerciseQuestionServices exerciseQuestionServices)
+                                    IQuestionServices questionServices)
         {
             _exerciseService=exerciseService;
             _categoryService = categoryServices;
             _questionService = questionServices;
-            _exerciseQuestionService=exerciseQuestionServices;
         }
 
         public IActionResult Index()
@@ -53,21 +52,22 @@ namespace WebIU.Areas.Admin.Controllers
             var result=_questionService.GetList().Where(x => x.CategoryId ==e.CategoryId).ToList();
             Random rnd = new Random();
             List<Question> selectedQuestions = new List<Question>();
-            for (int i = 0; i < e.QuestionCount-1; i++)
+            for (int i = 0; i < e.QuestionCount; i++)
             {
                selectedQuestions.Add(result[rnd.Next(0, result.Count)]);
             }
+
             //Seçilen sorular ilgili tabloya işlenmesi gerekiyor.
-            foreach (var item in selectedQuestions)
-            {
-                var eq = new ExerciseQuestion
-                {
-                    Exercise = e,
-                    Question = item
+            //foreach (var item in selectedQuestions)
+            //{
+            //    var eq = new ExerciseQuestionsModelDTO
+            //    {
+            //         CategoryId=e.CategoryId,
+            //         QuestionId=item.QuestionId
                     
-                };
-                _exerciseQuestionService.Add(eq);
-            }
+            //    };
+            //    _exerciseQuestionService.Add(eq);
+            //}
            
 
         }

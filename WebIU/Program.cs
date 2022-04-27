@@ -50,8 +50,6 @@ builder.Services.AddScoped<IQuestionDal, EfQuestionRepository>();
 builder.Services.AddScoped<IExerciseServices, ExerciseManager>();
 builder.Services.AddScoped<IExerciseDal, EfExerciseRepository>();
 
-builder.Services.AddScoped<IExerciseQuestionServices, ExerciseQuestionManager>();
-builder.Services.AddScoped<IExerciseQuestionDal, EfExerciseQuestionRepository>();
 
 var app = builder.Build();
 

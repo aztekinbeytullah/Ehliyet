@@ -35,15 +35,6 @@ namespace BLL.Concrete
             return _questionDal.GetList();
         }
 
-        /// <summary>
-        /// Kategorilerin ve Soruların "Join Model" Operasyonu
-        /// </summary>
-        /// <returns></returns>
-        public List<QuestionModelDTO> QuestionModelWhitCategory()
-        {
-            return _questionDal.QuestionModelWhitCategory();
-        }
-
         public void Remove(Question question)
         {
             _questionDal.Remove(question);
