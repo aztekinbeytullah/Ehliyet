@@ -153,6 +153,25 @@ namespace DAL.Migrations
                     b.ToTable("Exercises");
                 });
 
+            modelBuilder.Entity("Entity.Concrete.ExerciseQuestion", b =>
+                {
+                    b.Property<int>("ExerciseQuestionsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExerciseQuestionsId"), 1L, 1);
+
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExerciseQuestionsId");
+
+                    b.ToTable("ExerciseQuestions");
+                });
+
             modelBuilder.Entity("Entity.Concrete.Question", b =>
                 {
                     b.Property<int>("QuestionId")

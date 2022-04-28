@@ -23,6 +23,7 @@ namespace DAL.Concrete
         public DbSet<Category>? Categories { get; set; }
         public DbSet<Question>? Questions { get; set; }
         public DbSet<Exercise>? Exercises { get; set; }
+        public DbSet<ExerciseQuestion>? ExerciseQuestions { get; set; }
 
 
     }

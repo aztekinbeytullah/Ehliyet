@@ -16,18 +16,26 @@
         <form class="forms-sample" method="post" enctype="multipart/form-data">
 
             <div class="form-group row">
-
-
-
                 <input type="hidden" class="form-control" asp-for="DateOfUpload" asp-action="AddQuestion" asp-area="Admin" asp-controller="Question" value="@DateTime.Now.ToShortDateString()">
-
             </div>
-
 
             <div class="form-group row">
                 <label asp-for="Image" class="col-sm-3 col-form-label">Soru Resmi</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control" asp-for="Image" asp-action="AddQuestion" asp-area="Admin" asp-controller="Question">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="CategoryId" class="col-sm-3 col-form-label">Soru Kategorisi</label>
+                <div class="col-sm-9">
+                    <select asp-for="CategoryId" class="form-select" aria-label="Default select example">
+                        <option value="0">Kategori Seçiniz</option>
+                        @foreach (var item in categories)
+                        {
+                            <option asp-for="CategoryId" value="@item.CategoryId">@item.Name</option>
+                        }
+                    </select>
                 </div>
             </div>
 
@@ -45,17 +53,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Kategorisi</label>
-                <select asp-for="CategoryId" class="btn btn-primary btn-sm">
-                    <option value="0">Kategori Seçiniz</option>
-                    @foreach (var item in categories)
-                    {
-                        <option asp-for="CategoryId" value="@item.CategoryId">@item.Name</option>
-                    }
-                </select>
 
-            </div>
 
 
             <button type="submit" class="btn btn-primary mr-2" asp-action="AddQuestion" asp-area="Admin" asp-controller="Question">Kaydet</button>

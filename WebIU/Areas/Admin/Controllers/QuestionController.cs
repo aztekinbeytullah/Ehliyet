@@ -21,8 +21,8 @@ namespace WebIU.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var modelDto = _questionServices.GetList();
-            return View(modelDto);
+            var result = _questionServices.GetList();
+            return View(result);
         }
 
         public IActionResult DeleteQuestion(int id)
@@ -59,5 +59,12 @@ namespace WebIU.Areas.Admin.Controllers
             return RedirectToAction("Index");
     }
 
-}
+        public IActionResult MultiQuestionView()
+        {
+            var result = _questionServices.GetList();
+            return View(result);
+        }
+       
+
+    }
 }

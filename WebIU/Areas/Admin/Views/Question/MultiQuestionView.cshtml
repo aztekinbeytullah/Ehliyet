@@ -1,0 +1,51 @@
+﻿@using Entity.Concrete
+@model List<Question>
+
+@{
+    ViewData["Title"] = "MultiQuestionView";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
+
+        <form asp-action="" method="post" class="row">
+            <button class="btn btn-primary" type="button">Gönder</button>
+               
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="card card-small">
+                        <div class="thumbnail">
+                            <img alt="Opt alp thumbnail" height="350dp" src="~/Resource/UploadedImages/QuestionImages/@item.Image">
+                        </div>
+                        <div class="card-info">
+                            <div class="moving">
+                                <a class="btn btn-success btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.QuestionId">A</a>
+                                <a class="btn btn-success btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.QuestionId">B</a>
+                                <a class="btn btn-success btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.QuestionId">C</a>
+                                <a class="btn btn-success btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.QuestionId">D</a>
+                                <a class="btn btn-success btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Remove" asp-route-id="@item.QuestionId">E</a>
+                                <a class="btn btn-primary btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Update" asp-route-id="@item.QuestionId">Güncelle</a>
+                                <a class="btn btn-warning btn-sm mb-4" asp-controller="Exercise" asp-area="Admin" asp-action="Detail" asp-route-id="@item.QuestionId">Soruları İncele</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            
+
+        </form>
+
+
+
+
+
+    </div>
+</div>
+
