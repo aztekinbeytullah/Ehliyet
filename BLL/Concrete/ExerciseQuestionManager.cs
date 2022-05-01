@@ -1,6 +1,7 @@
 ﻿using BLL.Abstract;
 using DAL.Abstract;
 using DAL.EntityFramework;
+using Entity.DTOs;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ namespace BLL.Concrete
         public void Add(ExerciseQuestion exerciseQuestion)
         {
             _exerciseQuestionDal.Add(exerciseQuestion);
+        }
+
+        public List<ExerciseQuestionsDTO> AllQuestionsOnExercise(int exerciseId)
+        {
+            return _exerciseQuestionDal.AllQuestionsOnExercise(exerciseId);
         }
 
         public ExerciseQuestion GetById(int id)

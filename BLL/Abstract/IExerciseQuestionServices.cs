@@ -1,4 +1,5 @@
 ﻿using BLL.Concrete;
+using Entity.DTOs;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,6 @@ namespace BLL.Abstract
 {
     public interface IExerciseQuestionServices: IGenericServices<ExerciseQuestion>
     {
+        public List<ExerciseQuestionsDTO> AllQuestionsOnExercise(int exerciseId);
     }
 }

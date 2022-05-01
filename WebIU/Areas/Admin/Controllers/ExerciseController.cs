@@ -112,6 +112,23 @@ namespace WebIU.Areas.Admin.Controllers
 
         }
 
+       
+        public IActionResult GetListExerciseQuestions(int Id)
+        {
+            var result=_exerciseQuestionService.AllQuestionsOnExercise(Id);
+            return View(result);
+        }
+
+        public IActionResult DeleteExerciseQuestion(int id)
+        {
+            //İlgili soru denemden slindikten sonra exercise tablosunda da
+            //soru sayısınınn değiştirilmesi gerekiyor
+            var result=_exerciseQuestionService.GetById(id);
+            _exerciseQuestionService.Remove(result);
+            return RedirectToAction("Index");
+        }
+
+       
 
 
 

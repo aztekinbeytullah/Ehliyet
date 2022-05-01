@@ -117,7 +117,7 @@ namespace DAL.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Entity.Concrete.Exercise", b =>
@@ -150,7 +150,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ExerciseId");
 
-                    b.ToTable("Exercises");
+                    b.ToTable("Exercises", (string)null);
                 });
 
             modelBuilder.Entity("Entity.Concrete.ExerciseQuestion", b =>
@@ -169,7 +169,7 @@ namespace DAL.Migrations
 
                     b.HasKey("ExerciseQuestionsId");
 
-                    b.ToTable("ExerciseQuestions");
+                    b.ToTable("ExerciseQuestions", (string)null);
                 });
 
             modelBuilder.Entity("Entity.Concrete.Question", b =>
@@ -201,7 +201,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,0 +1,26 @@
+﻿@model List<Entity.DTOs.ExerciseQuestionsDTO>
+@{
+    ViewData["Title"] = "GetListExerciseQuestions";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container container-fluid">
+    @foreach (var item in Model)
+    {
+        <span class="border">
+            <img src="~/Resource/UploadedImages/QuestionImages/@item.Image" class="img-fluid d-flex p-2" alt="Responsive image">
+            <div class="btn-toolbar container-fluid" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-success btn-sm">Cevap: @item.Answer</button>
+                    <button type="button" class="btn btn-outline-primary btn-sm">Kategori: @item.CategoryName</button>
+
+                    <a asp-action="DeleteExerciseQuestion" asp-controller="Exercise" asp-area="Admin" asp-route-id="@item.ExerciseQuestionsId" type="button" class="btn btn-outline-primary btn-sm" >Denemeden Çıkar</a>
+                </div>
+            </div>
+        </span>
+    }
+</div>
+
+
+
