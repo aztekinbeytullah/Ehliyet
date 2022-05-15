@@ -64,6 +64,28 @@ namespace WebIU.Areas.Admin.Controllers
             var result = _questionServices.GetList();
             return View(result);
         }
+
+         [HttpPost]
+        public IActionResult AddMultiQuestion(IFormFile excelFile)
+        {
+
+            /*Bir excel dosyasından okunan question bilgileri. Her bir sorunun
+             * Excel içeriğinde
+             *  - her sorunun image yolu
+             *  - cevabı
+             *  - zorluk dzüeyi
+             *  - cetagorisi
+             *  - resim adı
+             * olması gerkeiyor.
+             * İmage yolu excel dosyasıyla aynı konum altında bulunan sorular klasöründe alınmalıdır.
+             * Klasörden okunan her bir resim_adına göre eşleştirme yapılıp sisteme eklenmesi sağlanacaktır.
+             */ 
+
+
+
+
+            return View();
+        }
        
 
     }

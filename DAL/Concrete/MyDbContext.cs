@@ -16,7 +16,7 @@ namespace DAL.Concrete
             string ev = "server=DESKTOP-F009EHO; database=mtskdbdb;integrated security=true;";
             string uzak = "workstation id=mtskdbdb.mssql.somee.com;packet size=4096;user id=OgretmenX_SQLLogin_1;pwd=2ce7csxt6x;data source=mtskdbdb.mssql.somee.com;persist security info=False;initial catalog=mtskdbdb";
             string laptop = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=mtskdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            optionsBuilder.UseSqlServer(laptop);
+            optionsBuilder.UseSqlServer(ev);
             base.OnConfiguring(optionsBuilder);
            
         }
